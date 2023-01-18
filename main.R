@@ -19,7 +19,7 @@ true_gamma <- c(rep(1, 4), rep(0, 500-4))
 Z <- rep(1, n)
 tau0_2 <- 1/n
 tau1_2 <- p^(2+2*0.0001)/n*10^(-3) #tuning  
-q <- p^(-0.1)
+q <- p^(-1)
 gamma <- rep(0, p)
 gamma[sample(1:p,20)] = 1
 
