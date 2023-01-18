@@ -34,7 +34,7 @@ exactGibbs <- function(X, Y, Z, gamma, tau0_2, tau1_2, q, nburn=2000, niter=2000
     ##### update beta
     D_gamma <- diag(gamma*inv_tau1_2+(1-gamma)*inv_tau0_2)
     sigma1 <- solve(t(X)%*%X+D_gamma)
-    mean1 <- sigma1%*%t(X)%*%Y
+    mean1 <- sigma1%*%t(X)%*%Z
     R <- chol(sigma1)
     temp <- t(R)%*%matrix(rnorm(1000*p), p)
     beta <- mean1+diag(temp%*%t(temp)/1000)
