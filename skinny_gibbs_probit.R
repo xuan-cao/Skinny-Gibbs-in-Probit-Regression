@@ -42,7 +42,7 @@ skinnyGibbs <- function(X, Y, Z, gamma, tau0_2, tau1_2, q, nburn=2000, niter=200
       # Generate active beta
       X_active <- matrix(X[, idx_active], nrow=n)
       sigma1 <- solve(t(X_active)%*%X_active+inv_tau1_2*diag(n_active))
-      mean1 <- sigma1%*%t(X_active)%*%Y
+      mean1 <- sigma1%*%t(X_active)%*%Z
       beta[idx_active] <- rmvnorm(n=1, mean=mean1, sigma=sigma1)
       # Generate inactive beta 
       beta[idx_inactive] <- rnorm(n=p-n_active, mean=0, sd=1/sqrt(n-1+inv_tau0_2))
